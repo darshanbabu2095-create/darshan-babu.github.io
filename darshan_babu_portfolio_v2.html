@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Darshan Babu</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0f0a;
+  --surface:#141710;
+  --border:#232820;
+  --ink:#e8e4dc;
+  --ink-mid:#9a9690;
+  --ink-dim:#5a5852;
+  --gold:#c8a96e;
+  --gold-dim:#7a6540;
+  --green:#4a7c59;
+  --green-bright:#6aab7a;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Instrument Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:58px;background:rgba(12,15,10,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink);letter-spacing:0.02em;}
+.logo span{color:var(--gold);font-style:italic;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:0 6vw;align-items:center;gap:80px;position:relative;}
+.hero::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,transparent 60%,rgba(74,124,89,0.04));pointer-events:none;}
+.hero-left{padding-top:80px;}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-bright);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--green-bright);}
+.hero-name{font-family:var(--serif);font-size:clamp(52px,6vw,80px);font-weight:300;line-height:1.0;margin-bottom:4px;color:var(--ink);}
+.hero-name em{font-style:italic;color:var(--gold);}
+.hero-descriptor{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:var(--ink-mid);margin:20px 0 36px;line-height:1.4;}
+.hero-intro{font-size:15px;color:var(--ink-mid);line-height:1.8;max-width:440px;margin-bottom:48px;}
+.hero-intro strong{color:var(--ink);font-weight:500;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--gold);color:#1a1200;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:opacity 0.2s,transform 0.15s;}
+.btn-gold:hover{opacity:0.88;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:transparent;color:var(--ink-mid);font-size:13px;font-weight:500;text-decoration:none;border:1px solid var(--border);transition:border-color 0.2s,color 0.2s,transform 0.15s;}
+.btn-ghost:hover{border-color:var(--gold-dim);color:var(--ink);transform:translateY(-1px);}
+
+/* HERO RIGHT — pull quotes */
+.hero-right{padding-top:80px;display:flex;flex-direction:column;gap:20px;}
+.pull-card{border:1px solid var(--border);padding:28px 28px;position:relative;}
+.pull-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--green);}
+.pull-num{font-family:var(--serif);font-size:42px;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:6px;}
+.pull-label{font-size:12px;color:var(--ink-dim);letter-spacing:0.04em;}
+.pull-quote{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink-mid);line-height:1.6;border-top:1px solid var(--border);padding-top:20px;margin-top:4px;}
+
+/* SECTIONS */
+.section{padding:100px 6vw;border-top:1px solid var(--border);}
+.section-eye{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-bright);margin-bottom:14px;}
+h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:56px;}
+h2 em{font-style:italic;color:var(--gold);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start;}
+.about-body p{color:var(--ink-mid);margin-bottom:20px;font-size:15.5px;line-height:1.85;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body strong{color:var(--ink);font-weight:500;}
+.aside-block{display:flex;flex-direction:column;gap:2px;}
+.aside-item{padding:22px 20px;background:var(--surface);border:1px solid var(--border);border-top:none;}
+.aside-item:first-child{border-top:1px solid var(--border);}
+.aside-title{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:6px;}
+.aside-val{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink);line-height:1.35;}
+
+/* EXPERIENCE */
+.exp-entry{display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--border);padding:52px 0;}
+.exp-entry:last-child{border-bottom:1px solid var(--border);}
+.exp-left{padding-top:4px;}
+.exp-period{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--green-bright);margin-bottom:10px;}
+.exp-org{font-size:13px;font-weight:500;color:var(--ink-mid);}
+.exp-place{font-size:12px;color:var(--ink-dim);margin-top:3px;}
+.exp-right{}
+.exp-title{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:12px;}
+.exp-context{font-size:14px;color:var(--ink-mid);font-style:italic;line-height:1.7;margin-bottom:24px;padding-left:16px;border-left:2px solid var(--green);}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.exp-points li{font-size:14px;color:var(--ink-mid);padding-left:18px;position:relative;line-height:1.7;}
+.exp-points li::before{content:'→';position:absolute;left:0;color:var(--gold-dim);font-size:12px;top:1px;}
+.exp-points li strong{color:var(--ink);font-weight:500;}
+
+/* WHAT I DO */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);}
+.pillar{background:var(--surface);padding:40px 32px;}
+.pillar-num{font-family:var(--serif);font-size:52px;font-weight:300;font-style:italic;color:var(--border);line-height:1;margin-bottom:20px;}
+.pillar-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:14px;letter-spacing:0.02em;}
+.pillar-body{font-size:13.5px;color:var(--ink-dim);line-height:1.75;}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.tag{font-size:11px;padding:4px 10px;border:1px solid var(--border);color:var(--ink-dim);letter-spacing:0.03em;}
+
+/* PROUD MOMENT */
+.moment-block{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center;}
+.moment-left{border:1px solid var(--border);padding:40px;text-align:center;}
+.moment-icon{font-family:var(--serif);font-size:64px;font-weight:300;font-style:italic;color:var(--gold);opacity:0.7;line-height:1;}
+.moment-right p{font-size:17px;color:var(--ink-mid);line-height:1.85;margin-bottom:16px;}
+.moment-right p:first-child{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--ink);font-weight:300;}
+.moment-right strong{color:var(--ink);font-weight:500;}
+
+/* BEYOND WORK */
+.beyond-text{max-width:700px;}
+.beyond-text p{font-size:16px;color:var(--ink-mid);line-height:1.9;margin-bottom:18px;}
+.beyond-text p strong{color:var(--ink);font-weight:500;}
+.beyond-text em{font-style:italic;color:var(--gold);}
+
+/* CONTACT */
+.contact-band{background:var(--surface);border:1px solid var(--border);padding:72px 6vw;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.contact-left h2{margin-bottom:16px;}
+.contact-left p{color:var(--ink-mid);font-size:15px;line-height:1.8;max-width:400px;}
+.contact-links{display:flex;flex-direction:column;gap:18px;}
+.c-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink-mid);font-size:14px;transition:color 0.2s;}
+.c-link:hover{color:var(--gold);}
+.c-icon{width:36px;height:36px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.c-icon svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;}
+
+/* FOOTER */
+footer{padding:28px 6vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+.foot-name{font-family:var(--serif);font-size:14px;font-weight:300;font-style:italic;color:var(--ink-dim);}
+.foot-copy{font-size:12px;color:var(--ink-dim);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-left>*{animation:fadeUp 0.8s ease both;}
+.hero-left>*:nth-child(1){animation-delay:0.05s}
+.hero-left>*:nth-child(2){animation-delay:0.12s}
+.hero-left>*:nth-child(3){animation-delay:0.2s}
+.hero-left>*:nth-child(4){animation-delay:0.28s}
+.hero-left>*:nth-child(5){animation-delay:0.36s}
+.hero-right>*:nth-child(1){animation:fadeUp 0.8s 0.2s ease both}
+.hero-right>*:nth-child(2){animation:fadeUp 0.8s 0.32s ease both}
+.hero-right>*:nth-child(3){animation:fadeUp 0.8s 0.44s ease both}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.on{opacity:1;transform:none;}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:100px;padding-bottom:60px;}
+  .hero-right{display:none;}
+  .about-grid,.moment-block,.contact-band{grid-template-columns:1fr;gap:40px;}
+  .pillars{grid-template-columns:1fr;}
+  .exp-entry{grid-template-columns:1fr;gap:16px;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Darshan <span>Babu</span></span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#craft">What I do</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Engineer · Auckland, NZ</div>
+    <h1 class="hero-name">Darshan<br><em>Babu</em></h1>
+    <p class="hero-descriptor">Detail-driven. Calm under pressure.<br>Built for complex environments.</p>
+    <p class="hero-intro">
+      I'm a mechanical engineer who has spent the last few years doing the kind of work that actually keeps manufacturing running — <strong>fixing things properly, documenting them thoroughly, and making sure the team around me doesn't need me to do it again.</strong> I connect quality, process, and people into something that works.
+    </p>
+    <div class="cta-row">
+      <a href="#contact" class="btn-gold">Let's connect</a>
+      <a href="#experience" class="btn-ghost">See my work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pull-card">
+      <div class="pull-num">3+</div>
+      <div class="pull-label">Years in regulated manufacturing</div>
+    </div>
+    <div class="pull-card">
+      <div class="pull-num">0</div>
+      <div class="pull-label">Major non-conformances across all audits</div>
+    </div>
+    <div class="pull-quote">
+      "I bring calm and structure to fast-moving, chaotic environments — and I build systems that keep working after I've moved on."
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-eye">About</div>
+  <h2>An engineer who works<br>at the <em>intersection</em></h2>
+  <div class="about-grid reveal">
+    <div class="about-body">
+      <p>I started as a mechanical engineer and found that the most interesting problems weren't purely technical — they were the ones that sat at the crossroads of <strong>process, quality, and people</strong>. That's where I've ended up spending most of my time, and where I do my best work.</p>
+      <p>At Griffin's Foods in Auckland, I moved from the production floor into a secondment spanning quality systems and new product development. I've led pilot trials from scoping through to handover, written the documentation that teams actually use, driven root cause investigations that stopped recurring problems, and trained operators who now run things without needing to ask. None of it was handed to me — I saw what needed doing and did it.</p>
+      <p>I hold a <strong>Bachelor of Mechanical Engineering</strong> and a <strong>Postgraduate Certificate in Food Packaging Technology from Massey University</strong> — a combination that gives me a broad foundation across engineering, materials, compliance, and product lifecycle thinking. I'm looking for senior roles where I can own more of that picture — in process engineering, quality leadership, or technical operations management.</p>
+      <p>I'm based in Auckland and open to roles across New Zealand.</p>
+    </div>
+    <div class="aside-block reveal">
+      <div class="aside-item">
+        <div class="aside-title">Background</div>
+        <div class="aside-val">Mechanical Engineering + Food Packaging Technology</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-title">Current base</div>
+        <div class="aside-val">Auckland, New Zealand</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-title">Industries</div>
+        <div class="aside-val">FMCG · Medical Devices · Regulated Manufacturing</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-title">Looking for</div>
+        <div class="aside-val">Senior engineering, quality leadership, or technical operations roles</div>
+      </div>
+      <div class="aside-item">
+        <div class="aside-title">Contact</div>
+        <div class="aside-val">darshanbabu2095@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-eye">Experience</div>
+  <h2>Where I've<br><em>done the work</em></h2>
+
+  <div class="exp-entry reveal">
+    <div class="exp-left">
+      <div class="exp-period">2023 — Present</div>
+      <div class="exp-org">Griffin's Foods Ltd</div>
+      <div class="exp-place">Auckland, NZ</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-title">Manufacturing Operator / Quality & CI Secondment</div>
+      <p class="exp-context">A high-volume FMCG facility producing some of New Zealand's most recognised snack brands — operating under GMP, ISO 9001, and HACCP frameworks with internal and third-party audit obligations.</p>
+      <ul class="exp-points">
+        <li><strong>Led NPD pilot trials end-to-end</strong> — from engineering scoping and resource planning through to validated handover and embedded SOPs. These weren't one-off projects; the documentation I wrote is still in use today.</li>
+        <li><strong>Built process validation frameworks</strong> from scratch: risk assessments, capability studies, CAPA-linked corrective plans — ensuring robustness before anything went near production scale.</li>
+        <li>Drove root cause investigations using 5-Why and Fishbone methods, resolving recurring deviations and measurably reducing repeat non-conformances across production lines.</li>
+        <li>Monitored real-time KPIs and production data to catch process drift early — translating findings into targeted actions reviewed with engineering and operations leadership.</li>
+        <li>Maintained all quality documentation to audit-ready standard across three frameworks simultaneously — <strong>zero major non-conformances raised</strong> across all audit cycles.</li>
+        <li>Trained and coached operators on process changes, building genuine capability so improvements stuck without ongoing hand-holding.</li>
+        <li>Acted as the bridge between the production floor and technical leadership — someone operators trusted and managers listened to.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-entry reveal">
+    <div class="exp-left">
+      <div class="exp-period">Oct – Dec 2022</div>
+      <div class="exp-org">Veolia</div>
+      <div class="exp-place">Wellington, NZ</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-title">Maintenance Operator</div>
+      <p class="exp-context">Regulated infrastructure and water services environment — safety-critical, compliance-heavy, and operationally demanding.</p>
+      <ul class="exp-points">
+        <li>Maintained plant and infrastructure equipment reliability, applying mechanical knowledge to identify and escalate faults before they became failures.</li>
+        <li>Contributed to compliance documentation and operational workflow improvements in a tightly regulated environment.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO — 3 PILLARS -->
+<section class="section" id="craft">
+  <div class="section-eye">What I do</div>
+  <h2>Three things I do<br><em>better than most</em></h2>
+  <div class="pillars reveal">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Make processes reliable</div>
+      <p class="pillar-body">I design and document processes that don't break when I'm not in the room. From feasibility through validation and scale-up, I build with the end in mind — and I create the systems that keep them running.</p>
+      <div class="pillar-tags">
+        <span class="tag">Process Development</span>
+        <span class="tag">Validation</span>
+        <span class="tag">Scale-Up</span>
+        <span class="tag">pFMEA</span>
+        <span class="tag">SOP Authoring</span>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Make quality stick</div>
+      <p class="pillar-body">I've operated across ISO 9001, HACCP, and GMP frameworks and know that compliance only works when it's genuinely embedded — not bolted on for audits. I build quality in from the start, not at the end.</p>
+      <div class="pillar-tags">
+        <span class="tag">ISO 9001</span>
+        <span class="tag">GMP & HACCP</span>
+        <span class="tag">CAPA</span>
+        <span class="tag">Root Cause Analysis</span>
+        <span class="tag">Audit Readiness</span>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Make teams work better</div>
+      <p class="pillar-body">I bring calm to chaotic environments and translate between the people on the floor and the people making decisions. I train not to create dependence, but to build capability that outlasts my involvement.</p>
+      <div class="pillar-tags">
+        <span class="tag">Cross-functional Collab</span>
+        <span class="tag">Operator Training</span>
+        <span class="tag">CI & Lean</span>
+        <span class="tag">KPI Monitoring</span>
+        <span class="tag">Six Sigma White Belt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROUD MOMENT -->
+<section class="section">
+  <div class="section-eye">A moment worth mentioning</div>
+  <h2>Built something that<br><em>still runs today</em></h2>
+  <div class="moment-block reveal">
+    <div class="moment-left">
+      <div class="moment-icon">∞</div>
+    </div>
+    <div class="moment-right">
+      <p>"The work I'm most proud of isn't a single decision — it's a system."</p>
+      <p>During my secondment into quality and NPD at Griffin's, I built process documentation and validation frameworks from scratch. Not templates borrowed from somewhere else. <strong>Actual systems designed around how that facility works, what the team needs, and what the auditors look for.</strong> Those documents are still being used today — by people who weren't there when I wrote them. That's the kind of work I want to keep doing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND WORK -->
+<section class="section">
+  <div class="section-eye">Beyond the job</div>
+  <h2>What else<br><em>shapes me</em></h2>
+  <div class="beyond-text reveal">
+    <p>I'm not someone who clocks out and switches off. But I'm also not someone who thinks work is everything. <strong>I travel as much as I can</strong> — new countries, new contexts, new ways of seeing how people solve the same problems differently. It's made me a better engineer than any course I've taken.</p>
+    <p>More than anything, I'm a <em>social animal</em>. I genuinely like people — I like understanding what drives them, what frustrates them, what they're trying to get done. That curiosity is part of why I've ended up doing work that sits at the intersection of process and people, rather than purely technical work in isolation.</p>
+    <p>I think the best engineering happens when you understand the human context around it. I try to bring that into everything I do.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="padding-bottom:0;border-top:none;">
+  <div class="contact-band reveal">
+    <div class="contact-left">
+      <div class="section-eye">Contact</div>
+      <h2>Let's have<br>a <em>conversation</em></h2>
+      <p>I'm open to senior process, quality, and technical operations roles across New Zealand. If you think there could be a fit — or you just want to talk engineering — reach out directly.</p>
+    </div>
+    <div class="contact-links">
+      <a class="c-link" href="mailto:darshanbabu2095@gmail.com">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg></div>
+        darshanbabu2095@gmail.com
+      </a>
+      <a class="c-link" href="tel:+64212562218">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01-.07 2A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.21-1.21a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        021 256 2218
+      </a>
+      <a class="c-link" href="https://linkedin.com/in/darshan-babu" target="_blank">
+        <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        LinkedIn profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="foot-name">Darshan Babu</span>
+  <span class="foot-copy">Auckland, New Zealand · 2026</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
